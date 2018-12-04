@@ -3,7 +3,7 @@
 public class ReverseWords {
 
     public static void main(String[] args) {
-        String str = "run test a is this";
+        String str = "run test  a is this";
         System.out.print(reverseWords(str));
     }
 
