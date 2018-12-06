@@ -1,5 +1,4 @@
-import java.util.LinkedList;
-import java.util.ListIterator;
+import java.util.*;
 
 /* You are given two non-empty linked lists representing two non-negative integers.
 The digits are stored in reverse order and each of their nodes contain a single digit.
@@ -14,6 +13,7 @@ public class AddTwoNumbers {
         num1.add(2);
         num1.add(4);
         num1.add(3);
+        num2.add(0);
         num2.add(5);
         num2.add(6);
         num2.add(4);
@@ -36,16 +36,16 @@ public class AddTwoNumbers {
         String num2 = "";
         ListIterator<Integer> list1 = l1.listIterator();
         while (list1.hasNext()) {
-            num1 = num1 + list1.next();
+            num1 = list1.next() + num1;
         }
         ListIterator<Integer> list2 = l2.listIterator();
         while (list2.hasNext()) {
-            num2 = num2 + list2.next();
+            num2 = list2.next() + num2;
         }
         String numAdd = String.valueOf(Integer.valueOf(num1) + Integer.valueOf(num2));
         LinkedList<Integer> ln = new LinkedList<>();
         for (int i = numAdd.length() - 1, j = 0; i >= 0; i--, j++) {
-            ln.add(j, Integer.valueOf(numAdd.charAt(i) - '0'));
+            ln.add(j, numAdd.charAt(i) - '0');
         }
         return ln;
     }
